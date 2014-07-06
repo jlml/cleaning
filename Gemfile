@@ -30,7 +30,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'wicked'	
 
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'sass-rails', '>= 3.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
