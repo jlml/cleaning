@@ -17,4 +17,9 @@ class OrderStepsController < ApplicationController
 		@order.attributes=params.require(:order).permit(:location, :cleantime, :cleandate, :name, :number, :email)
 		render_wizard @order
 	end
+
+	private
+	def finish_wizard_path
+  		order_path(@order)
+	end
 end
