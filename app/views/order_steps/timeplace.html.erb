@@ -1,1 +1,20 @@
-<h1>timeplace</h1>
+<%= form_for @order, url: wizard_path do |f| %>
+  <h2>Tell us a little about yourself</h2>
+  <div class="field">
+    <%= f.label :cleandate %><br />
+    <%= f.date_select :cleandate, start_year: 2014, end_year: Date.today.year+1 %>
+  </div>
+  <div class="field">
+    <%= f.label :cleantime %><br />
+    <%= f.time_select :cleantime%>
+  </div>
+    <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location%>
+  </div>
+
+
+  <div class="actions">
+        <%= f.submit "Continue" %>
+  </div>
+<% end %>

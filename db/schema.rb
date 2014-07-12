@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712060908) do
+ActiveRecord::Schema.define(version: 20140712103512) do
 
   create_table "orders", force: true do |t|
     t.string   "location"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140712060908) do
     t.time     "cleantime"
     t.integer  "rooms"
     t.integer  "bathroom"
-    t.time     "cleanduration"
+    t.float    "cleanduration"
     t.float    "price"
     t.integer  "number"
     t.string   "email"
