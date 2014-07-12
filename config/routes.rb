@@ -2,6 +2,7 @@ CleanerSiteFinal::Application.routes.draw do
   get "site/landing"
 
   resources :orders
+  resources :order_steps
 
   root :to => "site#landing"
   # The priority is based upon order of creation: first created -> highest priority.
