@@ -1,0 +1,17 @@
+<table style="width:300px">
+	<tr>
+		<td>Name</td>
+		<td>Email</td> 
+		<td>Number</td>
+		<td>Rooms</td>
+	</tr>
+
+	<% @order.each do |o|%>
+		<tr>
+			<td><%= o.name%></td>
+			<td><%= o.email%></td> 
+			<td><%= o.number%></td>
+			<td><%= o.rooms%></td>
+		</tr>
+	<%end%>
+</table>
