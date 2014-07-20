@@ -1,6 +1,7 @@
 CleanerSiteFinal::Application.routes.draw do
   get "sessions/new"
   get "site/landing"
+  get "users/profile"
 
   resources :orders
   resources :order_steps

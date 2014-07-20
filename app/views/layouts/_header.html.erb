@@ -9,6 +9,7 @@
 			<%= link_to "Log Out", session_path("current"), method: "delete" %>
 			</br>
 			<%= link_to "Orders", user_path(current_user.id)%>
+			<%= link_to "Profile", '/users/profile'%>
 		<% else %>
 			<%= link_to "Sign Up", new_user_path %> or
 			<%= link_to "Log In", new_session_path %>

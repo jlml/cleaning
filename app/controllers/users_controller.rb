@@ -19,8 +19,12 @@ class UsersController < ApplicationController
 			else
 				@order = Order.find(session[:tmp_order])
 				@order.update_attribute(:user_id, @user.id)
+				@user.update_attribute(:name, @order.name)
+				@user.update_attribute(:address, @order.location)
+				@user.update_attribute(:email, @order.email)
 				session[:tmp_order]= nil
-				redirect_to :action => 'show'
+				session[:user_id] = @user.id
+				redirect_to user_path(@user.id)
 			end
 		else
 			render "new"
@@ -28,6 +32,10 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find(session[:user_id])
+	end
+
+	def profile
 		@user = User.find(session[:user_id])
 	end
 
