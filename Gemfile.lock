@@ -54,6 +54,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
+    pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -102,7 +103,7 @@ GEM
     turbolinks (2.2.2)
       coffee-rails
     tzinfo (0.3.40)
-    uglifier (2.5.1)
+    uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     wicked (1.0.3)
@@ -117,6 +118,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  pg
   rails (= 4.0.5)
   sass-rails (~> 4.0.2)
   sdoc
