@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
 			if session[:tmp_order].blank?
-				redirect_to root_url, notice: "Logged in!"
+				redirect_to user_path(user.id), notice: "Logged in!"
 			else
 				@order = Order.find(session[:tmp_order])
 				@order.update_attribute(:user_id, user.id)
