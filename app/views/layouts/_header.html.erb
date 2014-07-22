@@ -4,16 +4,20 @@
       <%= link_to "HomeFresh", '/', id: "logo" %>
     </div>
 	<div id="user_header">
+
 		<% if current_user %>
-			Logged in as <%= current_user.username %>.
-			<%= link_to "Log Out", session_path("current"), method: "delete" %>
-			</br>
-			<%= link_to "Orders", user_path(current_user.id)%>
-			<%= link_to "Profile", '/users/profile'%>
+		<ul>
+			<li>Logged in as <%= current_user.username %>.</li>
+			<li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+			<li><%= link_to "Orders", user_path(current_user.id)%></li>
+			<li><%= link_to "Profile", '/users/profile'%></li>
+		</ul>
 		<% else %>
 			<%= link_to "Sign Up", new_user_path %> or
 			<%= link_to "Log In", new_session_path %>
+
 	<% end %>
+
 </div>
 </div>
 </header>
