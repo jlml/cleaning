@@ -1,21 +1,29 @@
-<h1>Tell us about your room</h1>
 
-<%= form_for @order do |f| %>
 
-  <div class="field">
-    <%= f.label :rooms %><br />
-    <%= f.select :rooms, options_for_select([["One", "1"], ["Two", "2"]]) %>
-  </div>
-  <div class="field">
-    <%= f.label :bathroom %><br />
-    <%= f.select :bathroom, options_for_select([["One", "1"], ["Two", "2"]]) %>
-  </div>
-  <div class="field">
-    <%= f.label :cleanduration %><br />
-    <%= f.text_field :cleanduration %>
+<div id="page" class="grid small-page">
+  <div class="col-1-1 center">
+    <h2>Tell us about your room</h2>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Next" %>
-  </div>  
-<% end %>
+  <div class="col-2-3">
+      <%= form_for @order do |f| %>
+
+        <div class="field">
+          <%= f.label :rooms %><br />
+          <%= f.select :rooms, options_for_select([["One", "1"], ["Two", "2"]]) %>
+        </div>
+        <div class="field">
+          <%= f.label :bathroom %><br />
+          <%= f.select :bathroom, options_for_select([["One", "1"], ["Two", "2"]]) %>
+        </div>
+        <div class="field">
+          <%= f.label :cleanduration %><br />
+          <%= f.text_field :cleanduration %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Next" %>
+        </div>  
+      <% end %>
+  </div>
+</div>
