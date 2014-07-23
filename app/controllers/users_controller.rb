@@ -39,4 +39,20 @@ class UsersController < ApplicationController
 		@user = User.find(session[:user_id])
 	end
 
+	def edit
+		@user = User.find(session[:user_id])
+	end
+
+	def update
+		@user = User.find(session[:user_id])
+		if @user.update_attributes(user_params)
+			redirect_to action: 'profile'
+		else
+			render 'edit'
+		end
+	end
+
+	def user_params
+		params.require(:user).permit(:name, :number, :address, :password, :password_confirmation)
+	end
 end
