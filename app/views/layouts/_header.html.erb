@@ -5,8 +5,7 @@
 	<div class="col-1-3">
 		<%= link_to image_tag("logo.png", :border => 0, :id => 'logo', :class => 'nav-item' ), '/site/landing'%>
 	</div>
-	<div class="col-1-3" style="width: 40%">
-		<div id="user-header">
+	<div id="user-header" class="col-1-2" style="width: 44%">
 			<% if current_user %>
 				Logged in as <%= current_user.username %>.
 				<%= link_to "Log Out", session_path("current"), :class=>"nav-item", method: "delete" %>
@@ -16,7 +15,6 @@
 				<%= link_to "Sign Up", new_user_path, :class=>"nav-item" %>   or  
 				<%= link_to "Log In", new_session_path, :class=>"nav-item" %>
 		<% end %>
-	</div>
 </header>
 
 </div>
