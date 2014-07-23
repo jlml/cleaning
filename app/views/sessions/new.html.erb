@@ -1,13 +1,18 @@
-<h1>Log In</h1>
+<div id="page" class="grid small-page">
+	<div class="col-1-1 center divider-bottom">
+		<h2>Log In</h2>
+	</div>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-          <%= label_tag :username %><br />
-          <%= text_field_tag :username, params[:username] %>
-  </div>
-  <div class="field">
-          <%= label_tag :password %><br />
-          <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %>
-<% end %>
+	<%= form_tag sessions_path do %>
+	  <div class="field">
+	          <%= label_tag :username %><br />
+	          <%= text_field_tag :username, params[:username] %>
+	  </div>
+	  <div class="field">
+	          <%= label_tag :password %><br />
+	          <%= password_field_tag :password %>
+	  </div>
+	  <div class="actions"><%= submit_tag "Log In" %>
+	<% end %>
+
+</div>

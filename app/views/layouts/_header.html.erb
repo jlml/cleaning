@@ -1,19 +1,23 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "HomeFresh", '/', id: "logo" %>
-    </div>
-	<div id="user_header">
-		<% if current_user %>
-			Logged in as <%= current_user.username %>.
-			<%= link_to "Log Out", session_path("current"), method: "delete" %>
-			</br>
-			<%= link_to "Orders", user_path(current_user.id)%>
-			<%= link_to "Profile", '/users/profile'%>
-		<% else %>
-			<%= link_to "Sign Up", new_user_path %> or
-			<%= link_to "Log In", new_session_path %>
-	<% end %>
-</div>
-</div>
+
+<header id="navbar" class="grid">
+	<div class="col-1-3" style="width: 22%"></div>
+	<div class="col-1-3">
+		<%= link_to image_tag("logo.png", :border => 0, :id => 'logo', :class => 'nav-item' ), '/site/landing'%>
+	</div>
+	<div class="col-1-3" style="width: 10%"></div>
+	<div class="col-1-3">
+		<div id="user-header">
+			<% if current_user %>
+				Logged in as <%= current_user.username %>.
+				<%= link_to "Log Out", session_path("current"), :class=>"nav-item", method: "delete" %>
+				</br>
+				<%= link_to "Orders", user_path(current_user.id), :class=>"nav-item"%>
+				<%= link_to "Profile", '/users/profile', :class=>"nav-item"%>
+			<% else %>
+				<%= link_to "Sign Up", new_user_path, :class=>"nav-item" %>   or  
+				<%= link_to "Log In", new_session_path, :class=>"nav-item" %>
+		<% end %>
+	</div>
 </header>
+
+</div>
