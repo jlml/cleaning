@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration
       t.time :cleantime
       t.integer :rooms
       t.integer :bathroom
-      t.time :cleanduration
+      t.float :cleanduration
       t.float :price
       t.integer :number
       t.string :email
