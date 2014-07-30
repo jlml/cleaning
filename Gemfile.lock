@@ -27,7 +27,6 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     bcrypt (3.1.7)
-    bcrypt (3.1.7-x64-mingw32)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     builder (3.1.4)
@@ -56,7 +55,6 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.1)
     pg (0.17.1)
-    pg (0.17.1-x64-mingw32)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -96,7 +94,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
-    sqlite3 (1.3.9-x64-mingw32)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -114,7 +111,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
