@@ -1,5 +1,6 @@
 class ChangeDurationToFloat < ActiveRecord::Migration
   def change
-  	change_column :orders, :cleanduration, 'float USING CAST(cleanduration AS float)'
+  	remove_column :orders, :cleanduration
+  	add_column :orders, :cleanduration, :float
   end
 end
