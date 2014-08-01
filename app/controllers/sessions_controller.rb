@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 	def create
 	user = User.find_by_username(params[:username])
 		if user && user.authenticate(params[:password])
-			session[:user_id] = user.id
+			cookies.permanent[:auth_token] = user.auth_token
 			if session[:tmp_order].blank?
 				redirect_to user_path(user.id), notice: "Logged in!"
 			else
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:user_id] = nil
+		cookies.delete(:auth_token)
 		redirect_to root_url, notice: "Logged out!"
 	end
 end

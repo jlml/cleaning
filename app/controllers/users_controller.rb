@@ -32,19 +32,19 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(session[:user_id])
+		@user = User.find_by_auth_token(cookies[:auth_token])
 	end
 
 	def profile
-		@user = User.find(session[:user_id])
+		@user = User.find_by_auth_token(cookies[:auth_token])
 	end
 
 	def edit
-		@user = User.find(session[:user_id])
+		@user = User.find_by_auth_token(cookies[:auth_token])
 	end
 
 	def update
-		@user = User.find(session[:user_id])
+		@user = User.find_by_auth_token(cookies[:auth_token])
 		if @user.update_attributes(user_params)
 			redirect_to action: 'profile'
 		else
@@ -53,6 +53,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:name, :number, :address, :password, :password_confirmation)
+		params.require(:user).permit(:name, :email, :number, :address, :password, :password_confirmation)
 	end
 end
