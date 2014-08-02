@@ -1,10 +1,10 @@
 <%= form_for @order, url: wizard_path do |f| %>
-	<h1>Cost: </h1><%= @order.price%>
+	<h2>Cost: </h2><%= @order.price%>
 	  <div class="field">
     <%= f.label :cleaner %><br />
     <%= f.text_field :cleaner%>
   </div>
-  <div class="actions">
-          <%= f.submit "Continue" %>
+  <div class="actions right">
+    <%= f.submit "Continue" %>
   </div>
 <% end %>
