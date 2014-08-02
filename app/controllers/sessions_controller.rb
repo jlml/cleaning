@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
 	def create
 	user = User.find_by_username(params[:username])
 		if user && user.authenticate(params[:password])
-			cookies.permanent[:auth_token] = user.auth_token
+			if params[:remember_me]
+				cookies.permanent[:auth_token] = user.auth_token
+			else
+				cookies[:auth_token] = user.auth_token  
+			end
 			if session[:tmp_order].blank?
 				redirect_to user_path(user.id), notice: "Logged in!"
 			else
