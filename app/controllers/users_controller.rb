@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 		if @user.save
 			if session[:tmp_order].blank?
 				redirect_to root_url, notice: "Sign Up successful"
+				cookies[:auth_token] = @user.auth_token  
 			else
 				@order = Order.find(session[:tmp_order])
 				@order.update_attribute(:user_id, @user.id)
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 				@user.update_attribute(:address, @order.location)
 				@user.update_attribute(:email, @order.email)
 				session[:tmp_order]= nil
-				session[:user_id] = @user.id
+				cookies[:auth_token] = @user.auth_token  
 				redirect_to user_path(@user.id)
 			end
 		else
