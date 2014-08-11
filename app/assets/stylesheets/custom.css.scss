@@ -62,6 +62,7 @@ body {
 
 .small-page {
   width: 25% !important;
+  min-width: 500px;
 }
 
 .grid:after {
@@ -84,7 +85,7 @@ body {
   background-color: white;
 }
 
-.right {
+  .right {
   float:right;
 }
 
@@ -189,12 +190,21 @@ select {
   padding: 7px; 
 }
 
+input[type="number"] {
+  border-color: #CCCCCC;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 7px;
+}
+
 input[type="text"] {
   border-color: #CCCCCC;
   border-radius: 2px;
   border-width: 1px;
   border-style: solid;
   padding: 7px;
+  width: 250px;
 }
 
 input[type="password"] {

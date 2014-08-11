@@ -1,20 +1,20 @@
 
 <%= form_for @order, url: wizard_path do |f| %>
 <div class="col-1-1 center">
-  <h2>Tell us a little about yourself</h2>
+  <h2>Let us know when and where to go!</h2>
 </div>
   <div class="field">
-    <%= f.label :cleandate %><br />
+    <%= f.label :cleandate, "Booking Date" %><br />
     <%= f.date_select :cleandate, start_year: 2014, end_year: Date.today.year+1 %>
-  </div>
+  </div></br>
   <div class="field">
-    <%= f.label :cleantime %><br />
+    <%= f.label :cleantime, "Booking Start Time" %><br />
     <%= f.time_select :cleantime%>
-  </div>
+  </div></br>
     <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :location, "Address" %><br />
     <%= f.text_field :location%>
-  </div>
+  </div></br>
   <div class="actions right">
     <%= f.submit "Continue" %>
   </div>

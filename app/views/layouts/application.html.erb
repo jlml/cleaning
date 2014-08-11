@@ -14,9 +14,11 @@
 <body>
 	<%= render 'layouts/header' =%>	
 
-	<%-# for the landing page just show html, otherwise insert extra overhead -%>
-	<% if request.env['PATH_INFO'] == "/site/landing" || request.env['PATH_INFO'] == "/"%>
+	<%-# special pages have their own basic formatting -%>
+	<% if request.env['PATH_INFO'] == "/site/landing" ||
+						request.env['PATH_INFO'] == "/"%>
 		<%= yield %>
+	<%-# the rest have this basic formatting -%>
 	<% else %>
 		<div id="background-image" class="grid full-pic floor-cleaning-img">
 	  		<div class="horiz-gutter"></div>

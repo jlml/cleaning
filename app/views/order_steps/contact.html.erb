@@ -1,23 +1,26 @@
+
 <%= form_for @order, url: wizard_path do |f| %>
+<div class="col-1-1 center">
   <h2>Tell us a little about yourself</h2>
+</div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name%>
-  </div>
+  </div></br>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email%>
-  </div>
+  </div></br>
   <div class="field">
     <%= f.label :number %><br />
     <%= f.text_field :number%>
-  </div>
+  </div></br>
   <div class="field">
-    <%= f.label :message %><br />
+    <%= f.label :message, "Any comments on your booking?" %><br />
     <%= f.text_field :message%>
-  </div>
+  </div></br>
 
   <div class="actions right">
-        <%= f.submit "Continue" %>
+        <%= f.submit "Book Reservation!" %>
   </div>
 <% end %>
