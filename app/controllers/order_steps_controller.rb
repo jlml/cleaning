@@ -14,7 +14,10 @@ class OrderStepsController < ApplicationController
 
 	def update
 		@order = Order.find(session[:tmp_order])
-		@order.attributes=params.require(:order).permit(:location, :cleantime, :cleandate, :name, :number, :email, :cleaner)
+		@order.attributes=params.require(:order).permit(:location, :cleantime, :cleandate, :name, :number, :email, :cleaner, :status)
+		@order.status = step.to_s
+    	@order.status = 'active' if step == steps.last
+    	@order.update_attributes(params[:tmp_order])
 		render_wizard @order
 	end
 

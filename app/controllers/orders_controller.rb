@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
-		if @order.save
+		@order.status = "First Step"
+		if @order.save!
 			session[:tmp_order] = @order.id
 			redirect_to order_steps_path
 		else 
@@ -24,6 +25,6 @@ class OrdersController < ApplicationController
 
 	private
 		def order_params
-			params.require(:order).permit(:rooms,:bathroom,:cleanduration)
+			params.require(:order).permit(:rooms,:bathroom,:cleanduration, :status)
 		end
 end
