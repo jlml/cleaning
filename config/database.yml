@@ -6,22 +6,14 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: cleaning_development
   pool: 5
-  username: postgres
-  password: hihi
-  host: localhost
-  port: 5432
 
 test: &TEST
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: cleaning_test
   pool: 5
-  username: postgres
-  password: hihi
-  host: localhost
-  port: 5432
 
 production:
   adapter: postgresql
