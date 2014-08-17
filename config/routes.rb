@@ -1,4 +1,5 @@
 CleanerSiteFinal::Application.routes.draw do
+  mount Judge::Engine => '/judge'
   get "sessions/new"
   get "site/landing"
   get "users/profile"

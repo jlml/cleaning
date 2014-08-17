@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
  	validates_uniqueness_of :username
  	validates_presence_of :password, :on => :create
+ 	validates :username, presence: true
  	before_create { generate_token(:auth_token) }
 
 	def generate_token(column)

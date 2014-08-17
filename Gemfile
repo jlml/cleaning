@@ -47,6 +47,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'judge'
 
+gem 'html5_validators'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
