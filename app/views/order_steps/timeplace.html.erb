@@ -1,5 +1,5 @@
 
-<%= form_for @order, url: wizard_path do |f| %>
+<%= form_for @order, url: wizard_path, :validate => true do |f| %>
 <div class="col-1-1 center">
   <h2>Let us know when and where to go!</h2>
 </div>
@@ -14,6 +14,7 @@
     <div class="field">
     <%= f.label :location, "Address" %><br />
     <%= f.text_field :location%>
+    <span class = "inline-error"><%= @order.errors[:location].join(", ")%> </span>
   </div></br>
   <div class="actions right">
     <%= f.submit "Continue" %>
