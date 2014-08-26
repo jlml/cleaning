@@ -4,6 +4,7 @@ CleanerSiteFinal::Application.routes.draw do
   get "site/landing"
   get "users/profile"
   get "users/edit"
+  get "/booking_confirmation", :to => "home#booking_confirmation"
 
   resources :orders
   resources :order_steps

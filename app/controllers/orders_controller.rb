@@ -23,8 +23,23 @@ class OrdersController < ApplicationController
 		@order = Order.all
 	end
 
+	def edit
+		@order = Order.find(params[:id])
+	end
+
+	def update 
+		@order = Order.find(params[:id])
+		@order.update_attributes(order_params)
+		redirect_to booking_confirmation_path
+	end
+
+	def booking_confirmation
+
+	end
+
 	private
-		def order_params
-			params.require(:order).permit(:rooms,:bathroom,:cleanduration, :status)
-		end
+	
+	def order_params
+		params.require(:order).permit(:rooms,:bathroom,:cleanduration, :status,:location, :cleantime, :cleandate, :name, :number, :email, :cleaner)
+	end
 end

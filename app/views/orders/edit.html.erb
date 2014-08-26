@@ -1,0 +1,71 @@
+<div class="col-1-2">
+    <%= form_for @order do |f| %>
+
+      <div class="field">
+        <%= f.label :rooms, "Rooms" %><br />
+        <%= f.select :rooms, options_for_select([["One Bedroom", "1"], ["Two Bedrooms", "2"]]) %>
+      </div>
+</div>
+<div class="col-1-2">
+      <div class="field">
+        <%= f.label :bathroom, "Bathrooms" %><br />
+        <%= f.select :bathroom, options_for_select([["One Bathroom", "1"], ["Two Bathrooms", "2"]]) %>
+      </div>
+</div>
+<div class="col-1-1">
+      <div class="horiz-gutter"></div>
+      <div class="field">
+        <%= f.label :cleanduration, "Booking Duration" %><br />
+        <%= f.number_field :cleanduration, :class => 'text_field', :step => 'any' %>
+      </div>
+</div>
+
+<div class="col-1-1 center">
+  <h2>Tell us a little about yourself</h2>
+</div>
+
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name%>
+</div></br>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email%>
+  <span class = "inline-error"><%= @order.errors[:email].join(", ")%> </span>
+</div></br>
+<div class="field">
+  <%= f.label :number %><br />
+  <%= f.text_field :number%>
+  <span class = "inline-error"><%= @order.errors[:number].join(", ")%> </span>
+</div></br>
+<div class="field">
+  <%= f.label :message, "Any comments on your booking?" %><br />
+  <%= f.text_field :message%>
+</div>
+
+<div class="col-1-1 center">
+  <h2>when and where to go!</h2>
+</div>
+  <div class="field">
+    <%= f.label :cleandate, "Booking Date" %><br />
+    <%= f.date_select :cleandate, start_year: 2014, end_year: Date.today.year+1 %>
+  </div></br>
+  <div class="field">
+    <%= f.label :cleantime, "Booking Start Time" %><br />
+    <%= f.time_select :cleantime%>
+  </div></br>
+    <div class="field">
+    <%= f.label :location, "Address" %><br />
+    <%= f.text_field :location%>
+    <span class = "inline-error"><%= @order.errors[:location].join(", ")%> </span>
+  </div></br>
+
+  <h2>Cost: </h2><%= @order.price%>
+    <div class="field">
+    <%= f.label :cleaner %><br />
+    <%= f.text_field :cleaner%>
+  </div>
+  <div class="actions right">
+    <%= f.submit "Update order" %>
+  </div>
+<% end %>

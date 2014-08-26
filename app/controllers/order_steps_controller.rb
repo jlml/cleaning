@@ -23,6 +23,8 @@ class OrderStepsController < ApplicationController
 
 	private
 	def finish_wizard_path
-  		new_user_path
+		@order = Order.find(session[:tmp_order])
+		booking_confirmation_path(:order => @order)
+  		# new_user_path
 	end
 end
