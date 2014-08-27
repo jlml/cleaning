@@ -24,8 +24,8 @@ class UsersController < ApplicationController
 				@user.update_attribute(:address, @order.location)
 				@user.update_attribute(:email, @order.email)
 				session[:tmp_order]= nil
-				cookies[:auth_token] = @user.auth_token  
-				redirect_to user_path(@user.id)
+				cookies[:auth_token] = @user.auth_token 
+				redirect_to booking_confirmation_order_path(@order)
 			end
 		else
 			render "new"
