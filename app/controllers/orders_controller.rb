@@ -30,11 +30,20 @@ class OrdersController < ApplicationController
 	def update 
 		@order = Order.find(params[:id])
 		@order.update_attributes(order_params)
-		redirect_to booking_confirmation_path
+		redirect_to booking_confirmation_order_path(@order)
 	end
 
 	def booking_confirmation
+		@user = User.find_by_auth_token(cookies[:auth_token])
+		if @user.present?
+			@order = Order.find(params[:id])
+		else
+			redirect_to new_user_path
+		end
+	end
 
+	def payment
+		@order = Order.find(params[:id])
 	end
 
 	private

@@ -1,0 +1,42 @@
+
+<div class="col-1-1 center">
+	<h2>Your Order</h2>
+	Confirm your order detail and check out
+</div>
+
+<table>
+	<tr>
+		<td>Date and Time </td>
+		<td>
+			<%= @order.cleandate.strftime("%d-%B-%Y") %>
+			at <%= @order.cleantime.strftime("%H:%M")%>
+		</td>
+	</tr>
+	<tr>
+		<td>Phone Number</td>
+		<td><%= @order.number%></td>
+	</tr>
+	<tr>
+		<td>Number of Bedrooms</td>
+		<td><%= @order.rooms%></td>
+	</tr>
+	<tr>
+		<td>Number of Bathrooms</td>
+		<td><%= @order.bathroom%></td>
+	</tr>
+	<tr>
+		<td>Booking Duration</td>
+		<td><%= @order.cleanduration%></td>
+	</tr>
+	<tr>
+		<td>Cleaner</td>
+		<td><%= @order.cleaner %></td>
+	</tr>
+	<tr>
+		<td> Total Cost: </td>
+		<td> $<%= @order.price %> </td>
+	</tr>
+</table>
+
+<%= link_to "Edit", edit_order_path(@order), :class => "btn btn-large btn-primary" %>
+<%= link_to "Proceed to checkout", payment_order_path(@order) %>

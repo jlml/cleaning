@@ -1,0 +1,18 @@
+
+<div class="col-1-1 center">
+	<h2> Order Amount </h2>
+</div>
+
+<table>
+
+	<tr>
+		<td>Cleaner</td>
+		<td><%= @order.cleaner %></td>
+	</tr>
+	<tr>
+		<td> Total Cost: </td>
+		<td> $<%= @order.price %> </td>
+	</tr>
+</table>
+
+<%= link_to "Pay", "#" %>
