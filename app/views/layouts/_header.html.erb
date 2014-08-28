@@ -1,5 +1,3 @@
-
-
 <header id="navbar" class="grid">
 	<div class="col-1-3" style="width: 22%"></div>
 	<div class="col-1-3">
@@ -7,10 +5,10 @@
 	</div>
 	<div id="user-header" class="col-1-2" style="width: 44%">
 			<% if current_user %>
-				Logged in as <%= current_user.username %>.
-				<%= link_to "Log Out", session_path("current"), :class=>"nav-item", method: "delete" %>
 				<%= link_to "Orders", user_path(current_user.id), :class=>"nav-item"%>
 				<%= link_to "Profile", '/users/profile', :class=>"nav-item"%>
+				<%= link_to "Log Out", session_path("current"), :class=>"nav-item", method: "delete" %>
+				Logged in as <%= current_user.username %>.
 			<% else %>
 				<%= link_to "Sign Up", new_user_path, :class=>"nav-item" %>   or  
 				<%= link_to "Log In", new_session_path, :class=>"nav-item" %>
