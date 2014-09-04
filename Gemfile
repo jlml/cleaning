@@ -57,3 +57,6 @@ gem 'html5_validators'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem "nested_form"

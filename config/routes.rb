@@ -1,6 +1,8 @@
 CleanerSiteFinal::Application.routes.draw do
-  mount Judge::Engine => '/judge'
-  get "sessions/new"
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
+  # get "sessions/new"
   get "site/landing"
   get "users/profile"
   get "users/edit"
@@ -18,7 +20,10 @@ CleanerSiteFinal::Application.routes.draw do
   end
   resources :order_steps
   resources :users
-  resources :sessions
+  # resources :sessions
+  resources :services do 
+    resources :timings
+  end
 
   root :to => "site#landing"
   # The priority is based upon order of creation: first created -> highest priority.
