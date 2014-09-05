@@ -25,7 +25,9 @@ ActiveAdmin.register Service do
 
       f.has_many :timings, allow_destroy: true do |timing|
         timing.inputs "Add available timing" do
-           timing.input :available_at
+            timing.input :available_date, :as => :datepicker
+            timing.input :available_from, :as => :time_picker
+            timing.input :available_till, :as => :time_picker
           # timing.input :available_at, :as => :datepicker
         end
       end

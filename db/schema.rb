@@ -81,7 +81,9 @@ ActiveRecord::Schema.define(version: 20140905052142) do
   end
 
   create_table "timings", force: true do |t|
-    t.datetime "available_at"
+    t.datetime "available_date"
+    t.datetime "available_from"
+    t.datetime "available_till"
     t.integer  "service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
