@@ -21,6 +21,7 @@ CleanerSiteFinal::Application.routes.draw do
   resources :order_steps
   resources :users
   # resources :sessions
+  resources :cleaners
   resources :services do 
     resources :timings
   end
