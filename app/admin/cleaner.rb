@@ -1,11 +1,14 @@
 ActiveAdmin.register Cleaner do
 
-   index do
+  index do
     column :name
-
-    # column :angel_list_handle
-    # column :hiring_page
-    default_actions
+    column "User" do |cleaner|
+      cleaner.user.username
+    end
+    column "Number of Services" do |cleaner|
+      cleaner.services.count
+    end
+    actions
   end
 
   form do |f|
@@ -14,7 +17,7 @@ ActiveAdmin.register Cleaner do
       f.input :name
     end
 
-      f.inputs :for => [:user, f.object.user] do |user|
+    f.inputs :for => [:user, f.object.user] do |user|
      user.input :username
      user.input :password
      user.input :password_confirmation
