@@ -46,6 +46,10 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
+	def get_available_timings
+
+	end
+
 	private
 	
 	def order_params

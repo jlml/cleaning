@@ -5,7 +5,7 @@
 </div>
   <div class="field">
     <%= f.label :cleandate, "Booking Date" %><br />
-    <%= f.date_select :cleandate, start_year: 2014, end_year: Date.today.year+1 %>
+    <%= f.date_select :cleandate, :as => :datepicker %>
   </div></br>
   <div class="field">
     <%= f.label :cleantime, "Booking Start Time" %><br />

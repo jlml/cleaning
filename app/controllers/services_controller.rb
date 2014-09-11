@@ -21,6 +21,7 @@ class ServicesController < ApplicationController
 	private
 
 	def service_parameters
-		params.require(:service).permit(:name,:description,:cleaner_id, timings_parameters: [:id, :available_at, :_destroy ] )
+		params.require(:service).permit(:name,:description,:cleaner_id, timings_parameters: [:id, 
+			:available_date, :available_from, :available_till, :_destroy ] )
 	end
 end

@@ -39,7 +39,8 @@ ActiveAdmin.register Service do
   controller do
 
     def permitted_params
-      params.permit service: [:name, :description, :cleaner_id, timings_attributes: [:id, :available_at, :_destroy]]
+      params.permit service: [:name, :description, :cleaner_id, timings_attributes: [:id, :available_date, 
+        :available_from, :available_till , :_destroy]]
     end  
   end
 
