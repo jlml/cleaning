@@ -1,4 +1,5 @@
 $bodygrey: #E6E6E6;
+$greyhighlight: #C9C9C9;
 $cleanblue: #1991D1;
 $cleanhighlight: #0085CC;
 $greenisforgo: #2EB82E;
@@ -183,10 +184,20 @@ p {
 }
 
 /* inputs */
+#datepicker {
+  font-size: 10px;
+}
+
+#alternate {
+  width: 100%;
+}
+.selected {
+  background-color: $cleanblue;
+}
+
 select {
- 
   border-color: #CCCCCC;
-  border-radius: 2px;
+  border-radius: 4px;
   border-width: 1px;
   border-style: solid;
   padding: 7px; 

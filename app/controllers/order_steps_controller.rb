@@ -1,8 +1,15 @@
 class OrderStepsController < ApplicationController
 	include Wicked::Wizard
 	steps :timeplace, :contact, :payment
+	def index
+		@times = Timing.all
+		 logger.debug "New post: #{@times.inspect}"
 
+	end
 	def show
+		@times = Timing.order("available_from")
+		 logger.debug "SHOW {@times.inspect}"
+
 		order_id = session[:tmp_order]
 		@order = Order.find(order_id)
 		if @order.cleanduration
