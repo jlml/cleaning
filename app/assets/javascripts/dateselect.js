@@ -40,22 +40,25 @@
   }
 
   function displayTimes(timings) {
-      timeList.innerHTML = "";
-      if (timings) {
-        timings.forEach(function(entry) {
-          var a = document.createElement('a');
-          a.href= "javascript:;";
-          
-          var li = document.createElement('li');
-          li.id = entry.id;
-          var timeString = convertTimeString(entry.available_from) + " - " +  
-                            convertTimeString(entry.available_till);
-          li.innerHTML += timeString; 
-          
-          a.appendChild(li);
-          timeList.appendChild(a);
-        });  
-      }
+    timeList.innerHTML = "";
+    if (!timings) {
+      timeList.innerHTML = "there are no available times";  
+    }
+    else {
+      timings.forEach(function(entry) {
+        var a = document.createElement('a');
+        a.href= "javascript:;";
+        
+        var li = document.createElement('li');
+        li.id = entry.id;
+        var timeString = convertTimeString(entry.available_from) + " - " +  
+                          convertTimeString(entry.available_till);
+        li.innerHTML += timeString; 
+        
+        a.appendChild(li);
+        timeList.appendChild(a);
+      });  
+    }
   }
 
   function convertTimeString(original) {

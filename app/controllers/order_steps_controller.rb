@@ -14,6 +14,7 @@ class OrderStepsController < ApplicationController
 	end
 
 	def update
+		@times = Timing.order("available_from")
 		@order = Order.find(session[:tmp_order])
 		@order.attributes=params.require(:order).permit(:location, :cleantime, :cleandate, :name, :number, :email, :cleaner, :status)
 		@order.status = step.to_s
