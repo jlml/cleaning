@@ -60,3 +60,9 @@ gem 'html5_validators'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "nested_form"
+
+# gem 'paypal-express'
+
+gem 'paypal-sdk-merchant'
+
+gem 'paypal-recurring'

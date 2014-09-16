@@ -13,6 +13,7 @@ CleanerSiteFinal::Application.routes.draw do
     member do 
       get 'booking_confirmation'
       get 'payment'
+      get 'paypal_checkout'
     end
     # member get: :booking_confirmation
     # get "booking_confirmation", to: ""
@@ -25,6 +26,7 @@ CleanerSiteFinal::Application.routes.draw do
   resources :services do 
     resources :timings
   end
+
 
   root :to => "site#landing"
   # The priority is based upon order of creation: first created -> highest priority.

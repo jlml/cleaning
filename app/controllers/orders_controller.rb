@@ -46,6 +46,16 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
+
+	def paypal_checkout
+
+		@order = Order.find(params[:id])
+		 redirect_to @order.paypal.checkout_url(
+      return_url: orders_url(@order),
+      cancel_url: root_url
+    )
+	end
+
 	def get_available_timings
 
 	end
