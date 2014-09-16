@@ -1,8 +1,9 @@
 class OrderStepsController < ApplicationController
 	include Wicked::Wizard
 	steps :timeplace, :contact, :payment
-
 	def show
+		@times = Timing.order("available_from")
+
 		order_id = session[:tmp_order]
 		@order = Order.find(order_id)
 		if @order.cleanduration
@@ -13,6 +14,7 @@ class OrderStepsController < ApplicationController
 	end
 
 	def update
+		@times = Timing.order("available_from")
 		@order = Order.find(session[:tmp_order])
 		@order.attributes=params.require(:order).permit(:location, :cleantime, :cleandate, :name, :number, :email, :cleaner, :status)
 		@order.status = step.to_s

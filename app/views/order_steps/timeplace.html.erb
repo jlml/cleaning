@@ -1,22 +1,42 @@
 
 <%= form_for @order, url: wizard_path, :validate => true do |f| %>
 <div class="col-1-1 center">
-  <h2>Let us know when and where to go!</h2>
+  <h2>Let us know where and when to go!</h2>
 </div>
-  <div class="field">
-    <%= f.label :cleandate, "Booking Date" %><br />
-    <%= f.date_select :cleandate, :as => :datepicker %>
-  </div></br>
-  <div class="field">
-    <%= f.label :cleantime, "Booking Start Time" %><br />
-    <%= f.time_select :cleantime%>
-  </div></br>
+
+<div class="col-1-1">
     <div class="field">
     <%= f.label :location, "Address" %><br />
     <%= f.text_field :location%>
     <span class = "inline-error"><%= @order.errors[:location].join(", ")%> </span>
   </div></br>
-  <div class="actions right">
+</div>
+
+<div class="col-1-2">
+  <div class="field">
+    <%= f.label :cleandate, "Booking Date" %><br />
+    <%= f.text_field :cleandate, :id => "alternate" , :style => "display: none;" %><br/>
+    <div id="datepicker" size="10"></div>
+  </div></br>
+
+</div>
+
+<div class="col-1-2"> 
+  Available Times
+ <ul id="time-list"></ul>
+
+</div>
+
+<div class="col-1-1">
+<div class="actions right">
     <%= f.submit "Continue" %>
   </div>
+  </div>
 <% end %>
+
+
+<script id="times-json" type="text/json">
+    <%= raw @times.to_json %>
+</script>
+
+<%= javascript_include_tag "dateselect" %>
