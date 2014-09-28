@@ -2,7 +2,6 @@
 (function(window, document, undefined) {
   var ENTER_KEY_CODE = 13;
   var DATE_LENGTH = 10;
-  
   $( "#datepicker" ).datepicker({
       altField: "#alternate",
       dateFormat: "yy-mm-dd",
@@ -27,22 +26,43 @@
    * taskInput -- the HTMLElement input tag
    */
   function findTimes(date) {
+    var orderJSON = $("#order-json").html(),
+        order = $.parseJSON(orderJSON);
+    var duration = order.cleanduration;
+    
     var allTimesJSON = $("#times-json").html(),
         allTimes     = $.parseJSON(allTimesJSON);
     
     var times = [];
     allTimes.forEach(function(entry) {
-      if (entry.available_date.substring(0, DATE_LENGTH) === date) {
-        times.push(entry);
+      if (!entry.available_date)
+        return;
+      if (findTimeDuration(entry) >= duration) {
+         if (entry.available_date.substring(0, DATE_LENGTH) === date) {
+            var beginHour = getHour(entry.available_from);
+            var endHour = getHour(entry.available_till);
+            for (var x = beginHour; x + duration <= endHour; x+=1) {
+              times.push({ available_from: x, available_till: x + duration});  
+            }
+          }
       }
     });
+
+
     return times;
+  }
+
+  function findTimeDuration(time) {
+
+    var fromHour = getHour(time.available_from);
+    var tillHour = getHour(time.available_till);
+    return tillHour - fromHour;
   }
 
   function displayTimes(timings) {
     timeList.innerHTML = "";
-    if (!timings) {
-      timeList.innerHTML = "there are no available times";  
+    if (timings.length === 0) {
+      timeList.innerHTML = "There are no available times on this date for your order duration.";  
     }
     else {
       timings.forEach(function(entry) {
@@ -51,8 +71,8 @@
         
         var li = document.createElement('li');
         li.id = entry.id;
-        var timeString = convertTimeString(entry.available_from) + " - " +  
-                          convertTimeString(entry.available_till);
+        var timeString = getAMPM(entry.available_from) + " - " +  
+                          getAMPM(entry.available_till);
         li.innerHTML += timeString; 
         
         a.appendChild(li);
@@ -60,18 +80,23 @@
       });  
     }
   }
-
-  function convertTimeString(original) {
-    var time = original.substring(DATE_LENGTH + 1);
+  function getHour(timestamp) {
+    var time = timestamp.substring(DATE_LENGTH + 1);
     var hour = parseInt(time.substring(0,2));
-    var ampm = "am";
-    if (hour > 12) {
-      ampm = "pm"
-      hour -= 12;
-    }
-    var converted = "" + hour + time.substring(2, 5) + ampm;
-    return converted;
+    return hour;
   }
+  function getAMPM(hour) {
+    var ampm = "am";
+    var newHour = hour;
+    if (hour > 11) {
+      ampm = "pm";
+    }
+    if (hour > 12) {
+      newHour -= 12;
+    }
+    return "" + newHour + ampm;
+  }
+
 
   /* Handles check/delete events for the given task.
    *

@@ -9,6 +9,7 @@ class OrderStepsController < ApplicationController
 		if @order.cleanduration
 			@order.price = @order.cleanduration*15
 		end
+		Rails.logger.debug("My object: #{@order}")
 		@user = User.new
 		render_wizard
 	end
@@ -20,6 +21,7 @@ class OrderStepsController < ApplicationController
 		@order.status = step.to_s
     	@order.status = 'active' if step == steps.last
     	@order.update_attributes(params[:tmp_order])
+    	Rails.logger.debug("My object: #{@order}")
 		render_wizard @order
 	end
 
